@@ -1,0 +1,126 @@
+# ==========================================
+# KONSEP STRUKTUR DATA DAN ANALISIS KOMPLEKSITAS
+# ==========================================
+
+# ==========================================
+# 1. ARRAY
+# Penyimpanan data mahasiswa secara berurutan
+# ==========================================
+
+mahasiswa = [
+    "Ahmad Fauzi",
+    "Siti Rahma",
+    "Budi Santoso",
+    "Dewi Lestari",
+    "Rizki Pratama"
+]
+
+print("=== ARRAY ===")
+print("Data mahasiswa:")
+print(mahasiswa)
+
+print("\nMahasiswa pada indeks ke-2:")
+print(mahasiswa[2])
+
+
+# ==========================================
+# 2. STACK
+# Fitur Undo
+# Prinsip LIFO (Last In First Out)
+# ==========================================
+
+stack = []
+
+
+def push(aktivitas):
+    stack.append(aktivitas)
+
+
+def pop():
+    if len(stack) == 0:
+        print("Tidak ada aktivitas untuk di-undo.")
+    else:
+        aktivitas = stack.pop()
+        print("Undo:", aktivitas)
+
+
+print("\n=== STACK / UNDO ===")
+
+push("Menambahkan Ahmad Fauzi")
+push("Menambahkan Siti Rahma")
+push("Mengubah data Budi Santoso")
+
+print("Aktivitas:")
+print(stack)
+
+print("\nMelakukan Undo:")
+pop()
+
+print("Aktivitas setelah Undo:")
+print(stack)
+
+
+# ==========================================
+# 3. QUEUE
+# Sistem antrean pengolahan data
+# Prinsip FIFO (First In First Out)
+# ==========================================
+
+from collections import deque
+
+queue = deque()
+
+
+def enqueue(nama):
+    queue.append(nama)
+
+
+def dequeue():
+    if len(queue) == 0:
+        print("Antrean kosong.")
+    else:
+        mahasiswa = queue.popleft()
+        print("Melayani:", mahasiswa)
+
+
+print("\n=== QUEUE / ANTREAN ===")
+
+enqueue("Ahmad Fauzi")
+enqueue("Siti Rahma")
+enqueue("Budi Santoso")
+enqueue("Dewi Lestari")
+enqueue("Rizki Pratama")
+
+print("Antrean:")
+print(list(queue))
+
+print("\nProses pelayanan:")
+dequeue()
+
+print("\nAntrean setelah pelayanan:")
+print(list(queue))
+
+
+# ==========================================
+# 4. HASH TABLE / DICTIONARY
+# Pencarian data berdasarkan key
+# ==========================================
+
+data_mahasiswa = {
+    "12550125601": "Ahmad Fauzi",
+    "12550125602": "Siti Rahma",
+    "12550125603": "Budi Santoso",
+    "12550125604": "Dewi Lestari",
+    "12550125605": "Rizki Pratama"
+}
+
+print("\n=== HASH TABLE / DICTIONARY ===")
+
+nim_dicari = "12550125603"
+
+if nim_dicari in data_mahasiswa:
+    print("Data ditemukan:")
+    print("NIM:", nim_dicari)
+    print("Nama:", data_mahasiswa[nim_dicari])
+else:
+    print("Data tidak ditemukan.")
